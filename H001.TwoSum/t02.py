@@ -9,14 +9,17 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        lastidx = len(nums) - 1
+        map = {}
         for idx, val in enumerate(nums):
-            for nextidx in range(lastidx - idx):
-                if val + nums[nextidx + idx + 1] == target:
-                    return [idx, nextidx + idx + 1]
+            map[val] = idx
+            
+        for idx, val in enumerate(nums):
+            complement = target - val
+            if map.has_key(complement):
+                return [idx, map.get(complement)]
 
 if __name__ == "__main__":
     nums = [1, 2, 4]
-    target = 3
+    target = 5
     solution = Solution()
     print solution.twoSum(nums, target)
