@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# # -*- coding: utf-8 -*-
 
 
 class Solution(object):
@@ -11,13 +11,14 @@ class Solution(object):
         """
         map = {}
         for idx, val in enumerate(nums):
-            map[val] = idx
-
-        for idx, val in enumerate(nums):
             complement = target - val
-            if map.has_key(complement) and idx != map.get(complement):
-                return [idx, map.get(complement)]
-                
+
+            if map.has_key(complement):
+                return [map.get(complement), idx]
+
+            map[val] = idx
+            
+
 if __name__ == "__main__":
     nums = [0, 5, 11, 5]
     target = 10
