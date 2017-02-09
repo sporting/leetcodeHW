@@ -17,9 +17,14 @@ class Solution(object):
         s1, cur = None, None
 
         while True:
-            if l1 is None:
+            if (l1 is None) and (l2 is None):
+                if carry > 0:
+                    cur.next = ListNode(carry)
                 break
-            total = l1.val + l2.val + carry
+            v1 = 0 if l1 is None else (l1.val if l1.val is not None else 0)
+            v2 = 0 if l2 is None else (l2.val if l2.val is not None else 0)
+
+            total = v1 + v2 + carry
             if total > 9:
                 total = total - 10
                 carry =1
@@ -32,8 +37,8 @@ class Solution(object):
                 cur.next = ListNode(total)
                 cur = cur.next
 
-            l1 = l1.next
-            l2 = l2.next
+            l1 = l1.next if l1 is not None else None
+            l2 = l2.next if l2 is not None else None
 
         return s1
 
