@@ -5,7 +5,6 @@ import math
 # 因數分解加上羅馬數字規則
 # Factorization
 
-
 class Solution(object):
 
     def intToRoman(self, num):
@@ -51,5 +50,5 @@ if __name__ == '__main__':
     # num = 65535
     # print solution.intToRoman(num)
 
-    for i in xrange(88800, 88899):
+    for i in xrange(1, 100):
         print '{:5d}:{}'.format(i, solution.intToRoman(i))
