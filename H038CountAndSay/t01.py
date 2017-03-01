@@ -11,7 +11,6 @@ class Solution(object):
     	res = "1"
         for i in xrange(n-1):
             res = self.solve(res)
-            print res
         return res
 
     def solve(self, n):
